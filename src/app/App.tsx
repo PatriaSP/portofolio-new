@@ -11,6 +11,7 @@ import { ImageWithFallback } from "./components/ui/ImageWithFallback";
 import VisitorCounter from "./components/ui/visitor-counter";
 import { motion, useScroll, useTransform, useInView } from "motion/react";
 import { useRef, useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import photo from "./assets/images/photo.jpeg";
 import cv from "./assets/doc/cv.pdf";
 import { defaultSiteData } from "../lib/defaultData";
@@ -591,6 +592,7 @@ export default function App() {
           </p>
         </motion.div>
       </footer>
+      <Analytics />
     </div>
   );
 }
