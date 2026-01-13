@@ -160,7 +160,7 @@ export default function VisitorCounter() {
         { label: "Total Visitors", value: count ?? 0, icon: Globe, color: "text-green-600" },
         { label: "Today Visitors", value: todayCount ?? 0, icon: Users, color: "text-blue-600" },
         { label: "Page Views", value: pageViews ?? 0, icon: Eye, color: "text-purple-600" },
-        { label: "Avg Daily Visitor", value: dailyAverage ?? 0, icon: DoorOpen, color: "text-purple-600" },
+        { label: "Avg Daily Visitor", value: dailyAverage ?? 0, icon: DoorOpen, color: "text-orange-600" },
     ];
 
     return (
