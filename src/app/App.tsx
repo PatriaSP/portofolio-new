@@ -8,39 +8,12 @@ import {
   WandSparkles,
 } from "lucide-react";
 import { ImageWithFallback } from "./components/ui/ImageWithFallback";
+import VisitorCounter from "./components/ui/visitor-counter";
 import { motion, useScroll, useTransform, useInView } from "motion/react";
 import { useRef, useState, useEffect } from "react";
 import photo from "./assets/images/photo.jpeg";
 import cv from "./assets/doc/cv.pdf";
 
-// Animated Counter Component
-function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    let startTime: number | null = null;
-    const duration = 2000;
-
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      
-      setCount(Math.floor(progress * target));
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  }, [isInView, target]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-}
 
 export default function App() {
   const { scrollYProgress } = useScroll();
@@ -146,7 +119,7 @@ export default function App() {
       description:
         "Backend developer responsible for implementing scalable microservices architecture to support various business functionalities.",
       highlights: [
-        "Implemented microservices architecture using Java Quarkus",
+        "Implemented reactive microservices architecture using Java Quarkus",
         "Migrate oracle database to postgreSQL database",
         "Migrate oracle PL/SQL to Java services",
       ],
@@ -180,13 +153,6 @@ export default function App() {
       ],
     },
   ];
-
-  // const stats = [
-  //   { label: "Projects Completed", value: 50, suffix: "+" },
-  //   { label: "Years Experience", value: 5, suffix: "+" },
-  //   { label: "Happy Clients", value: 30, suffix: "+" },
-  //   { label: "Code Commits", value: 1000, suffix: "K+" },
-  // ];
 
   const email = "patriasp809@gmail.com";
   const linkedIn = "https://www.linkedin.com/in/patria-sp/";
@@ -355,40 +321,6 @@ export default function App() {
           </div>
         </motion.div>
       </section>
-
-      {/* Stats Section */}
-      {/* <section className="relative py-16 px-6 bg-white/50 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                drag
-                dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
-                dragElastic={0.3}
-                whileDrag={{ scale: 1.1, cursor: "grabbing", rotate: 5 }}
-                className="text-center p-6 bg-white rounded-xl shadow-md border border-slate-200 cursor-grab"
-              >
-                <motion.div className="text-blue-600 mb-2">
-                  <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                </motion.div>
-                <div className="text-slate-600 text-sm">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section> */}
 
       {/* Tech Stack Section */}
       <section id="stack" className="py-20 px-6">
@@ -687,6 +619,11 @@ export default function App() {
         </div>
       </section>
 
+      {/* Visitor Counter Section */} 
+      <section id="visitorcounter" className="relative py-16 px-6 bg-white/50 backdrop-blur-sm">
+        <VisitorCounter />
+      </section>
+      
       {/* Contact Section */}
       <section
         id="contact"
