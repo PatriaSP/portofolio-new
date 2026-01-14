@@ -1,6 +1,7 @@
 import {
   Linkedin,
   Mail,
+  MessageCircle,
   Code,
   Briefcase,
   Calendar,
@@ -39,6 +40,7 @@ export default function App() {
   const { techStack, projects, experiences, contact } = siteData;
   const email = contact?.email ?? defaultSiteData.contact.email;
   const linkedIn = contact?.linkedIn ?? defaultSiteData.contact.linkedIn;
+  const whatsApp = contact?.whatsApp ?? defaultSiteData.contact.whatsApp;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
@@ -108,7 +110,7 @@ export default function App() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  Patria Satridwi Pangga
+                  <u>Patria Satridwi Pangga</u>
                 </motion.span>
               </motion.h1>
 
@@ -166,6 +168,7 @@ export default function App() {
                 {[
                   { icon: Linkedin, href: linkedIn },
                   { icon: Mail, href: "mailto:" + email },
+                  { icon: MessageCircle, href: whatsApp },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
@@ -190,6 +193,7 @@ export default function App() {
             >
               <motion.div
                 whileHover={{ scale: 1.05, rotate: 2 }}
+                whileTap={{ scale: 0.95, rotate: -2 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 className="relative w-80 h-80 rounded-2xl overflow-hidden border-4 border-blue-500/20 shadow-2xl"
               >
@@ -241,10 +245,7 @@ export default function App() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     whileHover={{ scale: 1.05, y: -10 }}
-                    drag
-                    dragConstraints={{ left: -150, right: 150, top: -150, bottom: 150 }}
-                    dragElastic={0.2}
-                    whileDrag={{ scale: 1.08, cursor: "grabbing", rotate: 3 }}
+                    whileTap={{ scale: 0.9 }}
                     className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-shadow border border-slate-200 cursor-grab"
                   >
                     <h3 className="text-slate-900 mb-4 flex items-center gap-2">
@@ -272,10 +273,7 @@ export default function App() {
                             visible: { opacity: 1, scale: 1 },
                           }}
                           whileHover={{ scale: 1.1 }}
-                          drag
-                          dragConstraints={{ left: -20, right: 20, top: -20, bottom: 20 }}
-                          dragElastic={0.5}
-                          whileDrag={{ scale: 1.15, cursor: "grabbing" }}
+                          whileTap={{ scale: 0.8 }}
                           className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm transition-colors hover:bg-blue-500 hover:text-white cursor-grab"
                         >
                           {tech}
@@ -322,10 +320,7 @@ export default function App() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     whileHover={{ scale: 1.02, rotateY: 2 }}
-                    drag
-                    dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
-                    dragElastic={0.2}
-                    whileDrag={{ scale: 1.05, cursor: "grabbing", rotate: 2 }}
+                    whileTap={{ scale: 0.9 }}
                     className="group bg-gradient-to-br from-slate-50 to-white rounded-xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-blue-300 cursor-grab"
                   >
                     <div className="flex justify-between items-start mb-4">
@@ -336,12 +331,9 @@ export default function App() {
                         {project.title}
                       </motion.h3>
                       <motion.span 
-                        className="text-sm text-slate-500 bg-slate-100 px-3 py-1 rounded-full"
+                        className="text-sm text-slate-600 bg-slate-50 px-3 py-1 rounded-full"
                         whileHover={{ scale: 1.1 }}
-                        drag
-                        dragConstraints={{ left: -30, right: 30, top: -30, bottom: 30 }}
-                        dragElastic={0.4}
-                        whileDrag={{ scale: 1.15, cursor: "grabbing" }}
+                        whileTap={{ scale: 0.9 }}
                       >
                         {project.year}
                       </motion.span>
@@ -370,11 +362,8 @@ export default function App() {
                             visible: { opacity: 1, x: 0 },
                           }}
                           whileHover={{ scale: 1.1, y: -2 }}
-                          drag
-                          dragConstraints={{ left: -15, right: 15, top: -15, bottom: 15 }}
-                          dragElastic={0.5}
-                          whileDrag={{ scale: 1.15, cursor: "grabbing" }}
-                          className="px-3 py-1 bg-blue-100 text-slate-700 rounded-md text-sm cursor-grab"
+                          whileTap={{ scale: 0.9 }}
+                          className="px-3 py-1 bg-blue-500 text-white rounded-md text-sm cursor-grab"
                         >
                           {tech}
                         </motion.span>
@@ -421,10 +410,7 @@ export default function App() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     whileHover={{ scale: 1.02, x: 10 }}
-                    drag
-                    dragConstraints={{ left: -120, right: 120, top: -80, bottom: 80 }}
-                    dragElastic={0.2}
-                    whileDrag={{ scale: 1.03, cursor: "grabbing", rotate: 1 }}
+                    whileTap={{ scale: 1 }}
                     className="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 cursor-grab"
                   >
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
@@ -442,10 +428,7 @@ export default function App() {
                       <motion.div 
                         className="inline-flex items-center gap-2 text-slate-600 bg-slate-50 px-4 py-2 rounded-lg"
                         whileHover={{ scale: 1.05 }}
-                        drag
-                        dragConstraints={{ left: -40, right: 40, top: -40, bottom: 40 }}
-                        dragElastic={0.4}
-                        whileDrag={{ scale: 1.1, cursor: "grabbing" }}
+                        whileTap={{ scale: 0.9 }}
                       >
                         <Calendar className="size-4" />
                         <span>{exp.period}</span>
@@ -562,6 +545,16 @@ export default function App() {
                 >
                   <Linkedin className="size-5" />
                   <span>Connect on LinkedIn</span>
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
+                  whileTap={{ scale: 0.95 }}
+                  href={whatsApp}
+                  target="_blank"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 rounded-lg transition-colors"
+                >
+                  <MessageCircle className="size-5" />
+                  <span>Whatsapp</span>
                 </motion.a>
               </motion.div>
             </div>

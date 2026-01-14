@@ -123,5 +123,6 @@ export const defaultSiteData = {
   contact: {
     email: "patriasp809@gmail.com",
     linkedIn: "https://www.linkedin.com/in/patria-sp/",
+    whatsApp: "https://wa.me/6285217251961",
   },
 };
