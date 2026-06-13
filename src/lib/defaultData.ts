@@ -19,22 +19,30 @@ export const defaultSiteData = {
     },
     {
       category: "Tools",
-      technologies: ["Git", "Docker", "Netbeans", "VS Code", "Postman"],
+      technologies: ["Git", "Docker", "Netbeans", "VS Code", "Postman", "Soap UI", "Intel Ij"],
     },
     {
       category: "Other",
-      technologies: ["Oracle DB", "REST APIs", "PostgreSQL", "MySQL", "Kafka"],
+      technologies: ["Oracle DB", "REST APIs", "PostgreSQL", "MySQL", "Kafka", "Eureka", "Spring Config Server", "Redis"],
     },
   ],
 
   projects: [
     {
-      title: "Microservices",
+      title: "BNEXT",
       description:
-        "Backend microservice application for handling various business logic and data processing tasks.",
-      tech: ["Java Quarkus", "PostgreSQL", "Oracle DB"],
+        "Web Application for internal BSI frontliner like Customer Service and Teller.",
+      tech: ["Java Springboot", "Oracle DB", "Soap", "JWT", "Eureka", "Config Server", "Gateway", "Websocket", "Feign Client", "Redis"],
       link: "#",
       year: "Current Project",
+    },
+    {
+      title: "AP2T",
+      description:
+        "Backend microservice application used for PLN transaction.",
+      tech: ["Java Quarkus", "PostgreSQL", "Oracle DB"],
+      link: "#",
+      year: "2026",
     },
     {
       title: "Management Personal Data",
@@ -80,8 +88,20 @@ export const defaultSiteData = {
   experiences: [
     {
       role: "Senior Backend Developer",
+      company: "BSI",
+      period: "2026",
+      description:
+        "Backend developer responsible for implementing scalable microservices architecture to support various business functionalities.",
+      highlights: [
+        "Develop new frontliner restful api microcservice",
+        "Create one gateway from frontend to service",
+        "Add authentication header for service to service transaction",
+      ],
+    },
+    {
+      role: "Senior Backend Developer",
       company: "PLN Icon Plus",
-      period: "2025 - Present",
+      period: "2025 - 2026",
       description:
         "Backend developer responsible for implementing scalable microservices architecture to support various business functionalities.",
       highlights: [
